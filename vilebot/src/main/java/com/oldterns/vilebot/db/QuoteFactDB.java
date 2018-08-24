@@ -75,10 +75,23 @@ public class QuoteFactDB
     }
 
     /**
+     * Dump the quotes of a noun to a text file
+     *
+     * @param noun The noun to get the quotes of
+     */
+    public static void dumpQuotes( String noun ){
+        Jedis jedis = pool.getResource();
+        try
+        {
+            Set<String> quotes = getQuotes( noun );
+        }
+    }
+
+    /**
      * Add a fact to the fact set of a noun.
      * 
      * @param noun The noun to add the fact to
-     * @param quote The new quote
+     * @param fact The new fact
      */
     public static void addFact( String noun, String fact )
     {
